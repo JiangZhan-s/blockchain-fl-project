@@ -1,0 +1,10 @@
+{
+    "overall_status": "Finished",
+    "current_round": 3,
+    "total_rounds": 3,
+    "current_step": "\u6240\u6709\u4efb\u52a1\u5b8c\u6210",
+    "log_output": [
+        "\u56fe\u8868\u5df2\u4fdd\u5b58\u5230: /home/public/zhang-wu-yi/blockchain-fl-project/plots/accuracy_vs_rounds.png"
+    ],
+    "blockchain_info": {}
+}
