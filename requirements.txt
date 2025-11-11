@@ -1,0 +1,13 @@
+# 机器学习核心
+torch
+torchvision
+
+# 区块链交互
+web3
+
+# 数据处理与可视化
+pandas
+matplotlib
+
+# Web 仪表盘
+streamlit
