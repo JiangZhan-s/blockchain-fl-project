@@ -15,3 +15,7 @@ node_modules
 
 # Hardhat Ignition default folder for deployments against a local node
 ignition/deployments/chain-31337
+
+# 数据、模型文件
+./data/
+./saved_models/

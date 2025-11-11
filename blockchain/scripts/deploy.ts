@@ -1,4 +1,6 @@
 import { ethers } from "hardhat";
+import fs from "fs";
+import path from "path";
 
 async function main() {
   // 1. 获取部署者账户
@@ -40,6 +42,14 @@ async function main() {
   const tx = await rewardToken.transferOwnership(federatedLearningAddress);
   await tx.wait(); // 等待交易被打包确认
   console.log(`✅ Ownership of RewardToken transferred to ${federatedLearningAddress}`);
+
+  // --- 新增：将地址写入 .env 文件 ---
+  const envContent = `CONTRACT_ADDRESS=${federatedLearningAddress}\n`;
+  // 将 .env 文件创建在项目根目录
+  const envPath = path.join(__dirname, "..", "..", ".env"); 
+  fs.writeFileSync(envPath, envContent);
+  console.log(`Contract address saved to ${envPath}`);
+
 }
 
 // 我们推荐使用 async/await 语法来处理异步操作
