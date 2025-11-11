@@ -34,3 +34,23 @@ def load_cifar10(root_dir="../data", client_id=0, num_clients=1):
     print(f"  - 为客户端 {client_id} 加载了 {len(client_dataset)} 条 CIFAR-10 训练数据。")
     
     return client_dataset
+
+def load_cifar10_test(root_dir="../data"):
+    """
+    加载 CIFAR-10 测试数据集。
+    返回一个 DataLoader 对象。
+    """
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+    ])
+
+    data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), root_dir))
+    os.makedirs(data_path, exist_ok=True)
+
+    test_dataset = datasets.CIFAR10(root=data_path, train=False, download=True, transform=transform)
+    test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False)
+    
+    print(f"  - 加载了 {len(test_dataset)} 条 CIFAR-10 测试数据用于评估。")
+    
+    return test_loader
